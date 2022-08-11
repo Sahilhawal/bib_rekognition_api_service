@@ -31,8 +31,5 @@ def create_app(test_config=None):
     app.register_blueprint(bib_photos.bp)
     app.add_url_rule('/', endpoint='index')
 
-    from . import bib_functions
-    # app.register_blueprint(bib_functions.test_bp)
-
 
     return app 
