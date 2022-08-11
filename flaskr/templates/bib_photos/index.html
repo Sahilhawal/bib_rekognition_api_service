@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+<p>Upload Image:</p>
+<form action="/detect-image-text" method="post" enctype="multipart/form-data">
+  <input type="file" id="photo" name="photo" />
+  <input type="submit" name="Get Bib Numbers" />
+</form>
+
+{% if img_data %}
+<div class="img_wrapper">
+  <img
+    src="data:image/jpeg;base64,{{ img_data }}"
+    id="img-upload"
+    alt="img_data"
+    class="uploaded_image"
+  />
+</div>
+{% endif %} {% for text in textDetections %}
+<article class="post">
+  <header>
+    <div class="mapping_row">
+      <div class="bib_number">{{text['DetectedText']}}</div>
+    </div>
+  </header>
+</article>
+{% if not loop.last %}
+<hr />
+{% endif %} {% endfor %} {% endblock %}

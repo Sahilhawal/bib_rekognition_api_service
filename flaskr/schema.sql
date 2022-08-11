@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS bib_numbers;
+DROP TABLE IF EXISTS photo_to_bib_mapping;
+
+CREATE TABLE bib_numbers(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  bib INTEGER UNIQUE NOT NULL
+);
+
+CREATE TABLE photo_to_bib_mapping(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  bib_number TEXT NOT NULL,
+  photo TEXT NOT NULL
+);
